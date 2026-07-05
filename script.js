@@ -43,3 +43,43 @@ function crearCorazon(){
 }
 
 setInterval(crearCorazon,700);
+const carta = `
+
+maldita
+
+Hoy es tu cumpleaños.
+
+Y pensé que un regalo podía ser muchas cosas.
+
+Podía ser algo que se compra.
+
+O algo que se envuelve.
+
+Pero preferí hacer algo diferente.
+
+Quería crear un pequeño lugar que existiera solamente para ti.
+
+Un rincón de internet donde pudieras sonreír.
+
+Espero que este pequeño detalle te recuerde lo especial que eres.
+
+❤️
+`;
+
+const texto = document.getElementById("textoCarta");
+
+let i = 0;
+
+function escribirCarta(){
+
+    if(i < carta.length){
+
+        texto.innerHTML += carta.charAt(i);
+
+        i++;
+
+        setTimeout(escribirCarta,35);
+
+    }
+
+}
