@@ -188,3 +188,36 @@ transform:scale(1);
 }
 
 }
+#especial{
+
+padding:120px 10%;
+
+text-align:center;
+
+}
+
+.mensaje{
+
+max-width:850px;
+
+margin:auto;
+
+background:rgba(255,255,255,.6);
+
+backdrop-filter:blur(15px);
+
+padding:45px;
+
+border-radius:30px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.mensaje p{
+
+font-size:22px;
+
+line-height:2;
+
+}
