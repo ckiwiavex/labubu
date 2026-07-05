@@ -328,3 +328,46 @@ transition:.8s;
 display:none;
 
 }
+.heart{
+
+position:fixed;
+
+bottom:-50px;
+
+color:#ff7eb6;
+
+pointer-events:none;
+
+opacity:.45;
+
+z-index:1;
+
+animation:subir linear forwards;
+
+}
+
+@keyframes subir{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:.45;
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
