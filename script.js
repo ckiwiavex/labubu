@@ -1,7 +1,15 @@
 const boton = document.getElementById("abrir");
 
-boton.addEventListener("click", ()=>{
+const carta = document.getElementById("carta");
 
-    alert("💖 Esta es solo la primera parte... Lo mejor está por venir.");
+boton.addEventListener("click",()=>{
+
+    carta.style.display="flex";
+
+    carta.scrollIntoView({
+
+        behavior:"smooth"
+
+    });
 
 });
