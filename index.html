@@ -3,132 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para ti zorrita💕 ✨</title>
+  <title>Para Khaterin ✨</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: linear-gradient(135deg, #fce7f3, #f8fafc);
-      color: #4c1d95;
+      margin: 0;
+      background: #fce7f3;
+      overflow-x: hidden;
     }
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                  url('https://source.unsplash.com/random/1920x1080/?pink,flowers') center/cover;
-      min-height: 100vh;
+    .initial-screen {
+      height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      background: linear-gradient(#fce7f3, #f8d7e8);
       position: relative;
     }
     .title {
-      font-size: 5rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #ec4899, #f472b6, #db2777);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glow 3s ease-in-out infinite alternate;
+      font-family: 'Dancing Script', cursive;
+      font-size: 5.5rem;
+      color: #be185d;
+      text-shadow: 0 0 30px rgba(190, 24, 93, 0.4);
     }
-    @keyframes glow {
-      from { text-shadow: 0 0 20px #f472b6; }
-      to { text-shadow: 0 0 40px #ec4899; }
+    .envelope {
+      font-size: 9rem;
+      cursor: pointer;
+      transition: all 0.6s ease;
+      animation: pulse 2s infinite;
     }
-    .heart {
-      animation: float 3s ease-in-out infinite;
+    .envelope:hover {
+      transform: scale(1.15);
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
     }
-    .section {
-      padding: 80px 20px;
+
+    /* Animación del sobre abriéndose */
+    .open-envelope {
+      animation: openEnvelope 1.8s forwards;
+    }
+    @keyframes openEnvelope {
+      0% { transform: rotate(0deg) scale(1); }
+      100% { transform: rotate(8deg) scale(0.9); opacity: 0.3; }
+    }
+
+    .petal {
+      position: absolute;
+      font-size: 1.5rem;
+      pointer-events: none;
+      animation: fall linear forwards;
+      z-index: 10;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO - Lo primero que se ve -->
-  <section class="hero">
-    <div class="container mx-auto px-6">
-      <i class="fas fa-heart text-6xl text-pink-400 heart mb-6"></i>
-      <h1 class="title text-7xl md:text-8xl mb-4">¡Feliz Cumpleaños!</h1>
-      <h2 class="text-5xl md:text-6xl text-white font-light tracking-wider">[katerin]</h2>
-      <p class="text-2xl text-pink-100 mt-8">Hoy el mundo brilla más porque tú estás aquí ✨</p>
-      
-      <button onclick="scrollToMessage()" 
-              class="mt-12 px-10 py-4 bg-pink-500 hover:bg-pink-600 text-white text-xl font-semibold rounded-full transition-all shadow-lg">
-        Leer mi mensaje para ti ❤️
+  <!-- PANTALLA INICIAL -->
+  <div id="initial" class="initial-screen">
+    <h1 class="title mb-12">Para Khaterin</h1>
+    
+    <div id="envelope" class="envelope" onclick="openEnvelope()">
+      ✉️
+    </div>
+    
+    <p class="mt-10 text-pink-600 text-xl font-light">Toca el sobre ❤️</p>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL (oculto al inicio) -->
+  <div id="main-content" class="hidden">
+    <section class="min-h-screen flex items-center justify-center text-center px-6 relative">
+      <div>
+        <h1 class="text-7xl md:text-8xl font-bold text-pink-600 mb-6" style="font-family: 'Dancing Script', cursive;">
+          ¡Feliz Cumpleaños, Khaterin!
+        </h1>
+        <p class="text-2xl text-pink-700">Que este día sea tan hermoso como tú ✨</p>
+      </div>
+    </section>
+
+    <!-- Aquí puedes añadir más secciones después -->
+    <div class="text-center py-12">
+      <button onclick="lanzarConfeti()" 
+              class="px-10 py-5 bg-pink-500 text-white text-xl rounded-full">
+        Más sorpresas 🎉
       </button>
     </div>
-  </section>
-
-  <!-- MENSAJE PERSONAL -->
-  <section class="section bg-white">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-4xl font-bold text-pink-600 mb-10 text-center">Mi regalo más especial</h2>
-      <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-10 rounded-3xl shadow-xl">
-        <p class="text-lg leading-relaxed text-gray-700">
-          Aquí escribe tu mensaje más bonito y personal... <br><br>
-          Puedes contar por qué esa persona es importante para ti, un recuerdo especial, 
-          lo que sientes, etc.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERÍA -->
-  <section class="section bg-pink-50">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-4xl font-bold text-pink-600 mb-12 text-center">Nuestros momentos favoritos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Cambia estas URLs por tus fotos reales -->
-        <img src="https://source.unsplash.com/random/600x600/?friends" class="rounded-2xl shadow-md hover:scale-105 transition-transform" alt="Foto 1">
-        <img src="https://source.unsplash.com/random/600x600/?smile" class="rounded-2xl shadow-md hover:scale-105 transition-transform" alt="Foto 2">
-        <img src="https://source.unsplash.com/random/600x600/?party" class="rounded-2xl shadow-md hover:scale-105 transition-transform" alt="Foto 3">
-      </div>
-    </div>
-  </section>
-
-  <!-- BOTÓN SORPRESA -->
-  <div class="text-center py-20 bg-gradient-to-b from-pink-100 to-white">
-    <button onclick="lanzarSorpresa()" 
-            class="px-12 py-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-2xl font-bold rounded-full shadow-2xl hover:scale-110 transition-all">
-      ¡Toca aquí para la sorpresa final! 🎉
-    </button>
   </div>
+
+  <audio id="backgroundMusic" loop>
+    <source src="https://assets.mixkit.co/sfx/preview/296/296-preview.mp3" type="audio/mpeg">
+  </audio>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    function scrollToMessage() {
-      document.querySelector('.section').scrollIntoView({ behavior: 'smooth' });
+    function openEnvelope() {
+      const envelope = document.getElementById('envelope');
+      envelope.classList.add('open-envelope');
+
+      // Sonido de apertura (opcional)
+      setTimeout(() => {
+        document.getElementById('initial').style.opacity = '0';
+        
+        setTimeout(() => {
+          document.getElementById('initial').classList.add('hidden');
+          document.getElementById('main-content').classList.remove('hidden');
+          
+          // Inicia música
+          document.getElementById('backgroundMusic').play();
+          
+          // Empieza a caer pétalos
+          startCherryBlossoms();
+          
+          // Confeti inicial
+          confetti({ particleCount: 150, spread: 70, colors: ['#ec4899', '#f472b6'] });
+        }, 800);
+      }, 1200);
     }
 
-    function lanzarSorpresa() {
-      // Confeti rosa
+    function startCherryBlossoms() {
+      const colors = ['🌸', '🌺', '💗', '🩷'];
+      setInterval(() => {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.textContent = colors[Math.floor(Math.random() * colors.length)];
+        
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.top = '-50px';
+        petal.style.fontSize = (Math.random() * 1.8 + 1.2) + 'rem';
+        petal.style.animationDuration = (Math.random() * 8 + 7) + 's';
+        petal.style.opacity = Math.random() * 0.8 + 0.4;
+        
+        document.body.appendChild(petal);
+
+        setTimeout(() => petal.remove(), 15000);
+      }, 180);
+    }
+
+    function lanzarConfeti() {
       confetti({
-        particleCount: 300,
-        spread: 100,
+        particleCount: 200,
+        spread: 90,
         origin: { y: 0.6 },
-        colors: ['#ec4899', '#f472b6', '#db2777', '#c026d3']
+        colors: ['#ec4899', '#f472b6', '#db2777']
       });
-      
-      setTimeout(() => {
-        alert("¡Te quiero mucho y deseo que este año sea increíble para ti! 🎂❤️");
-      }, 800);
     }
-
-    // Confeti suave al cargar la página
-    window.onload = function() {
-      setTimeout(() => {
-        confetti({
-          particleCount: 80,
-          spread: 50,
-          origin: { y: 0.8 },
-          colors: ['#ec4899', '#f472b6']
-        });
-      }, 800);
-    };
   </script>
 </body>
 </html>
