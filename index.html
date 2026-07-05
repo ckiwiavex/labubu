@@ -49,8 +49,17 @@ Toca el sobre
 </div>
 
 </section>
+const sobre = document.querySelector(".sobre");
+const tapa = document.querySelector(".tapa");
+const carta = document.querySelector(".carta");
 
-<script src="script.js"></script>
+sobre.addEventListener("click",()=>{
+
+tapa.style.transform="rotateX(180deg)";
+
+carta.style.transform="translateY(-45px)";
+
+});<script src="script.js"></script>
 
 </body>
 
