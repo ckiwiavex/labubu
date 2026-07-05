@@ -1,8 +1,7 @@
 const sobre = document.getElementById("abrirSobre");
 const intro = document.getElementById("intro");
 const hero = document.querySelector(".hero");
-
-sobre.addEventListener("click", () => {
+setTimeout(escribirCarta,1200);sobre.addEventListener("click", () => {
 
     document.querySelector(".flap").style.transform = "rotateX(180deg)";
     document.querySelector(".letter").style.transform = "translateY(-80px)";
