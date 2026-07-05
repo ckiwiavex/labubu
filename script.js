@@ -1,90 +1,21 @@
-const boton = document.getElementById("abrir");
+const sobre = document.getElementById("abrirSobre");
 
-const carta = document.getElementById("carta");
+const intro = document.getElementById("intro");
 
-boton.addEventListener("click",()=>{
+const hero = document.querySelector(".hero");
 
-    carta.style.display="flex";
+sobre.addEventListener("click",()=>{
 
-    carta.scrollIntoView({
+    document.querySelector(".flap").style.transform="rotateX(180deg)";
 
-        behavior:"smooth"
+    document.querySelector(".letter").style.transform="translateY(-80px)";
 
-    });
+    setTimeout(()=>{
+
+        intro.style.display="none";
+
+        hero.style.display="flex";
+
+    },1200);
 
 });
-#galeria{
-
-padding:100px 8%;
-
-}
-
-#galeria h2{
-
-text-align:center;
-
-margin-bottom:50px;
-
-font-size:45px;
-
-color:#ff70ad;
-
-}
-
-.fotos{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-
-gap:35px;
-
-}
-
-.foto{
-
-background:white;
-
-padding:15px;
-
-border-radius:18px;
-
-box-shadow:0 15px 30px rgba(0,0,0,.1);
-
-transition:.4s;
-
-transform:rotate(-2deg);
-
-}
-
-.foto:nth-child(even){
-
-transform:rotate(2deg);
-
-}
-
-.foto:hover{
-
-transform:scale(1.05) rotate(0deg);
-
-}
-
-.foto img{
-
-width:100%;
-
-border-radius:12px;
-
-display:block;
-
-}
-
-.foto p{
-
-margin-top:15px;
-
-text-align:center;
-
-font-size:17px;
-
-}
